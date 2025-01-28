@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace LabInheritance
 {
-    internal class Salaried
+    public class Salaried : Employee
     {
+        private double salary;
+        public double Salary { get { return salary; } }
+        public long sin { get; set; }
+        public Salaried(string id, string name, string address, string phone, long sin) : base(id, name, address, phone)
+        {
+        }
+
+       
     }
 }
