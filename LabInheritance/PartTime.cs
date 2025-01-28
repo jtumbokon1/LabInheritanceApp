@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace LabInheritance
 {
-    internal class PartTime
+    public class PartTime : Employee
     {
+        public long sin;
+        public PartTime(string id, string name, string address, string phone, long sin) : base(id, name, address, phone)
+        {
+        }
     }
 }
