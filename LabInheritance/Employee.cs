@@ -11,13 +11,12 @@ namespace LabInheritance
         private string id;
         private string name;
         private string address;
-
-        //public Employee() { }
+        private string phone;
 
         public string Id { get { return id; } }
-        public string Name { get { return name; } }
+        public string Name { get { return name; } }    
         public string Address { get { return address; } }
-        public string phone { get; set; }
+        public string Phone { get { return phone; } }
         public Employee(string id, string name, string address, string phone)
         {
             this.id = id;
