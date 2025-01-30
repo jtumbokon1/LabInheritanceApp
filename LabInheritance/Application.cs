@@ -13,7 +13,7 @@ namespace LabInheritance
     {
         // constants
         private const string PATH = @"..\..\..\res\employees.txt"; // relative to .exe file
-        private const char sep = ':'; // separator of line fields
+        private const char SEP = ':'; // separator of line fields
 
         // public methods
         public static List<Employee> ReadFromFile()
@@ -26,7 +26,7 @@ namespace LabInheritance
             while (!reader.EndOfStream) // while there is data to read
             {
                 line = reader.ReadLine();
-                fields = line.Split(sep);
+                fields = line.Split(SEP);
                 // fields[0] is id
                 // fields[1] is name
                 // fields[2] is address
