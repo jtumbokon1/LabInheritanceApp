@@ -1,43 +1,33 @@
-﻿
-using System.Reflection.Metadata;
+﻿/*
+ * CPRG-211-C Lab Inheritance
+ * Author: Jirch Tumbokon
+ * When: Winter 2025
+ */
+
+/*
+ * This program calculates the average weekly pay for all employees,
+ * highest weekly pay for wage employees, lowest salary for salaried employees,
+ * and the percentage of salaried, wage, and part-time employees.
+ */
+
 using LabInheritance;
 
 class Program
 {
-    private const string PATH = @"..\..\..\res\employees.txt"; // relative to .exe file
-    private const char sep = ':'; // seperator of line fields
     public static void Main()
     {
-        List<Employee> ReadFromFile()
-        {
-            List<Employee> employees = new List<Employee>(); // empty list
-            StreamReader reader = new StreamReader(PATH);
-            string line; // for reading - whole line
-            string[] fields; // individual fields in the line
-            Employee emp = null; // new employee
-            while (!reader.EndOfStream) // while there is data to read
-            {
-                line = reader.ReadLine();
-                fields = line.Split(sep);
-                // fields[0] is id
-                // fields[1] is name
-                // fields[2] is address
-                // fields[3] is phone
-                switch (fields.Length)
-                {
-                    case 4: // salaried employee
-                        emp = new Salaried(fields[0], fields[1], fields[2], fields[3], Convert.ToInt64(fields[4]));
-                        break;
-                    case 5: // part-time employee
-                        emp = new PartTime(fields[0], fields[1], fields[2], fields[3], Convert.ToInt64(fields[4]));
-                        break;
-                    case 6: // wage employee
-                        emp = new Wages(fields[0], fields[1], fields[2], fields[3], Convert.ToInt64(fields[4]));
-                        break;
-                }
-                employees.Add(emp);
-            }
-            return employees;
-        }             
-    } // main
-} // class
+        double averagePay = Application.CalculateAveragePay(); // average pay of all employees
+        Console.WriteLine($"Average weekly pay: {averagePay.ToString("c")}");
+
+        var highestWageEmp = Application.GetHighestWage(); // highest weekly pay for wage employees and their name
+        Console.WriteLine($"Highest weekly pay for wage employees is {highestWageEmp.name}: {highestWageEmp.pay.ToString("c")}");
+        
+        var lowestSalaryEmp = Application.GetLowestSalary(); // lowest salary for salaried employees and their name
+        Console.WriteLine($"Lowest salary for salaried employees is {lowestSalaryEmp.name}: {lowestSalaryEmp.pay.ToString("c")}");
+
+        var percentage = Application.GetPercentage(); // percentage of salaried, wage, and part-time employees
+        Console.WriteLine($"Salaried Employees: {percentage.salariedPercentage.ToString("f2")}%");
+        Console.WriteLine($"Wage Employees: {percentage.wagePercentage.ToString("f2")}%");
+        Console.WriteLine($"Part-Time Employees: {percentage.partTimePercentage.ToString("f2")}%");
+    }
+}
