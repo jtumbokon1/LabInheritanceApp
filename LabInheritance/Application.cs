@@ -68,7 +68,7 @@ namespace LabInheritance
         public static double CalculateAveragePay()
         {
             List<Employee> employees = ReadFromFile();
-            return employees.Count > 0 ? employees.Average(e => e.getPay()) : 0; ;
+            return employees.Average(e => e.getPay());
         }
 
         public static (string name, double pay) GetHighestWage()
