@@ -92,9 +92,9 @@ namespace LabInheritance
                    partTimeCount = 0;
             foreach (Employee e in employees)
             {
-                if (e is Salaried) salaryCount++;
+               if (e is Salaried) salaryCount++;
                else if (e is Wages) wageCount++;
-                else if (e is PartTime) partTimeCount++;
+               else if (e is PartTime) partTimeCount++;
             }
             double salariedPercentage = salaryCount / employees.Count * 100;
             double wagePercentage = wageCount / employees.Count * 100;
