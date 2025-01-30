@@ -37,9 +37,5 @@ namespace LabInheritance
         {
             return rate * hours;
         }
-        public override string ToString()
-        {
-            return $"{base.ToString()}Pay: {getPay():C}";
-        }
     }// class
 }// namespace

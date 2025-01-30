@@ -30,9 +30,5 @@ namespace LabInheritance
         {
             return salary;
         }
-        public override string ToString()
-        {
-            return $"{base.ToString()}Pay: {getPay():C}";
-        }
     }// class
 }// namespace
