@@ -47,5 +47,5 @@ namespace LabInheritance
         {
             return "";
         }
-    }
-}
+    }// class
+}// namespace
